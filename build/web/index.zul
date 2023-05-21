@@ -1,0 +1,46 @@
+<zk>
+  <window title="Data Mahasiswa" border="normal" width="600px" apply="com.example.IndexComposer">
+    <vbox>
+      <hbox>
+        <label value="Nama:" />
+        <textbox id="namaTextbox" />
+      </hbox>
+      <hbox>
+        <label value="Email:" />
+        <textbox id="emailTextbox" />
+      </hbox>
+      <hbox>
+        <label value="Alamat:" />
+        <textbox id="addressTextbox" />
+      </hbox>
+      <hbox>
+        <label value="Telepon:" />
+        <textbox id="phoneTextbox" />
+      </hbox>
+      <hbox>
+        <button label="Tambah" onClick="@command('tambah')" />
+      </hbox>
+      <listbox model="@load(vm.mahasiswaList)">
+        <listhead>
+          <listheader label="Nama" />
+          <listheader label="Email" />
+          <listheader label="Alamat" />
+          <listheader label="Telepon" />
+          <listheader label="Aksi" />
+        </listhead>
+        <template name="model" var="mahasiswa">
+          <listitem>
+            <listcell label="@load(mahasiswa.nama)" />
+            <listcell label="@load(mahasiswa.email)" />
+            <listcell label="@load(mahasiswa.address)" />
+            <listcell label="@load(mahasiswa.phone)" />
+            <listcell>
+              <button label="Edit" onClick="@command('edit', mahasiswa=mahasiswa)" />
+              <button label="Hapus" onClick="@command('hapus', mahasiswa=mahasiswa)" />
+            </listcell>
+          </listitem>
+        </template>
+      </listbox>
+    </vbox>
+  </window>
+</zk>
